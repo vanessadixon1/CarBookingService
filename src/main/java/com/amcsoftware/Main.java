@@ -38,13 +38,16 @@ public class Main {
                         break;
                     case 2:
                         System.out.println(Arrays.toString(BookingService.getAllBookings()));
+                        menu();
                         break;
                     case 3:
                         break;
                     case 4:
                         System.out.println(Arrays.toString(CarService.getCars()));
+                        menu();
                         break;
                     case 5:
+                        menu();
                         break;
                     case 6:
                         System.out.println(Arrays.toString(UserService.getUsers()));
@@ -57,18 +60,12 @@ public class Main {
 
             } catch (NumberFormatException e) {
                 System.out.println("You have entered an invalid character\nEnter only character 1-7");
-//                scanner.nextLine();
-//                System.out.println("Enter");
             }
-
-
-
         }
-
     }
 
     public static void menu() {
-        System.out.println("\n\tEnter a number 1 - 7\n");
+        System.out.println("\nEnter a number 1 - 7\n");
         System.out.println(
               "1️⃣ - Book Car \n2️⃣ - View All User Booked Cars\n3️⃣ - View All Bookings" +
                       "\n4️⃣ - View Available Cars\n5️⃣ - View Available Electric Cars\n6️⃣ - View all users\n7️⃣ - Exit");
