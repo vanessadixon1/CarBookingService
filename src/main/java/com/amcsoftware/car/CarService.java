@@ -22,4 +22,28 @@ public class CarService {
         return car;
     }
 
+    private int numberOfElectricCars() {
+        int count = 0;
+        for(Car car : getCars()) {
+            if(car != null && car.getEngineType().equals(EngineType.Electric)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public Car[] getAvailableElectricCars() {
+        Car[] availableElectricCars = new Car[numberOfElectricCars()];
+        int nextAvailable = 0;
+        for(Car car : getCars()) {
+            if(car != null && car.getEngineType().equals(EngineType.Electric)) {
+                availableElectricCars[nextAvailable++] = car;
+            }
+        }
+        if(availableElectricCars.length == 0) {
+            System.out.println("There are no available Electric cars at this time. Check back later");
+        }
+        return availableElectricCars;
+    }
+
 }

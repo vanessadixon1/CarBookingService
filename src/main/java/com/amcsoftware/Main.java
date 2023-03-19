@@ -12,6 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         BookingService bookingService = new BookingService();
+        CarService carService = new CarService();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -44,6 +45,7 @@ public class Main {
                         menu();
                         break;
                     case 5:
+                        System.out.println(Arrays.toString(carService.getAvailableElectricCars()));
                         menu();
                         break;
                     case 6:
@@ -54,7 +56,6 @@ public class Main {
                         System.out.println("Exit Complete");
                         isAnswerYes = true;
                 }
-
             } catch (NumberFormatException e) {
                 System.out.println("You have entered an invalid character\nEnter only characters 1-7");
             }
