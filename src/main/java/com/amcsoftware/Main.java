@@ -59,7 +59,7 @@ public class Main {
                 }
 
             } catch (NumberFormatException e) {
-                System.out.println("You have entered an invalid character\nEnter only character 1-7");
+                System.out.println("You have entered an invalid character\nEnter only characters 1-7");
             }
         }
     }
