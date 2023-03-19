@@ -1,15 +1,12 @@
 package com.amcsoftware;
 
 import com.amcsoftware.booking.BookingService;
-import com.amcsoftware.car.Car;
 import com.amcsoftware.car.CarService;
 import com.amcsoftware.user.UserService;
 
 import java.util.Arrays;
 
 import java.util.Scanner;
-import java.util.UUID;
-import java.util.regex.Pattern;
 
 public class Main {
 
