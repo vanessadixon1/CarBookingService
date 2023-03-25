@@ -6,6 +6,8 @@ import com.amcsoftware.car.CarService;
 import com.amcsoftware.user.User;
 import com.amcsoftware.user.UserService;
 
+import java.util.UUID;
+
 public class BookingService {
 
     public static final int AVAILABLECARS = CarDao.getCars().length;
@@ -33,6 +35,11 @@ public class BookingService {
         Car car = carService.locateCar(carMake);
 
         if (user != null && car != null) {
+
+            if(user.getAge() < 21) {
+                System.out.println("Booking failed - users have to be 21 or older to book a car through AMC Software Booking Service");
+                return;
+            }
             Booking newBooking = new Booking(user.getId(), car);
             bookingDao.saveBooking(newBooking);
 
@@ -52,7 +59,25 @@ public class BookingService {
         }
     }
 
+    public void getUserBooking(String id) {
+        Booking locatedBooking  = null;
+
+        for(Booking userBooking : BookingDao.getBookings()) {
+            if(userBooking != null && userBooking.getUserid().equals(UUID.fromString(id))) {
+                locatedBooking = userBooking;
+            }
+        }
+
+        if(locatedBooking != null) {
+            System.out.println("user " + UUID.fromString(id) + " has the following booking\n" + locatedBooking );
+        } else {
+            System.out.println("no booking for the id " + UUID.fromString(id) + " exist");
+        }
+
+    }
+
     public static Booking[] getAllBookings() {
         return BookingDao.getBookings();
     }
+
 }

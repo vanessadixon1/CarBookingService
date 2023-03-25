@@ -6,10 +6,12 @@ import java.util.UUID;
 public class User {
     private UUID id;
     private String name;
+    private int age;
 
-    public User(UUID id, String name) {
+    public User(UUID id, String name, int age) {
         this.id = id;
         this.name = name;
+        this.age = age;
     }
 
     public UUID getId() {
@@ -28,17 +30,25 @@ public class User {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name);
+        return age == user.age && Objects.equals(id, user.id) && Objects.equals(name, user.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, age);
     }
 
     @Override
@@ -46,7 +56,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", age=" + age +
                 '}';
     }
-
 }

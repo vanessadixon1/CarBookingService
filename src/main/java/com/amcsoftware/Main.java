@@ -35,10 +35,14 @@ public class Main {
                         menu();
                         break;
                     case 2:
-                        System.out.println(Arrays.toString(BookingService.getAllBookings()));
+                        System.out.println("Enter the user's id\n");
+                        String userid = scanner.nextLine();
+                        bookingService.getUserBooking(userid);
                         menu();
                         break;
                     case 3:
+                        System.out.println(Arrays.toString(BookingService.getAllBookings()));
+                        menu();
                         break;
                     case 4:
                         System.out.println(Arrays.toString(CarService.getCars()));
@@ -65,7 +69,7 @@ public class Main {
     public static void menu() {
         System.out.println("\nEnter a number 1 - 7\n");
         System.out.println(
-              "1️⃣ - Book Car \n2️⃣ - View All User Booked Cars\n3️⃣ - View All Bookings" +
+              "1️⃣ - Book Car \n2️⃣ - View User Booking\n3️⃣ - View All Bookings" +
                       "\n4️⃣ - View Available Cars\n5️⃣ - View Available Electric Cars\n6️⃣ - View all users\n7️⃣ - Exit");
 
     }
