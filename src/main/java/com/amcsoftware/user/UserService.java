@@ -4,26 +4,26 @@ import java.util.UUID;
 
 public class UserService {
 
-    private UserDao userDao;
+    private UserArrayDataAccessService userArrayDataAccessService;
 
     public UserService() {
-        this.userDao = new UserDao();
+        this.userArrayDataAccessService = new UserArrayDataAccessService();
     }
 
-    public static User[] getUsers() {
-        return UserDao.getUsers();
+    public User[] getUsers() {
+        return userArrayDataAccessService.getUsers();
     }
 
     public User locateUser(String id) {
-        User user = null;
-        User[] userArr = UserService.getUsers();
+        User locatedUser = null;
+        User[] userArr = userArrayDataAccessService.getUsers();
         UUID userId = UUID.fromString(id);
-        for(int i = 0; i < userArr.length ; i++) {
-            if(userArr[i] != null && userArr[i].getId().equals(userId)) {
-                user = userArr[i];
+        for (User user : userArr) {
+            if (user != null && user.getId().equals(userId)) {
+                locatedUser = user;
             }
         }
-        return user;
+        return locatedUser;
     }
 
 }

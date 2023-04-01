@@ -43,9 +43,9 @@ public class BookingService {
             Booking newBooking = new Booking(user.getId(), car);
             bookingDao.saveBooking(newBooking);
 
-            for (int i = 0; i < UserService.getUsers().length; i++) {
-                if (UserService.getUsers()[i] != null && UserService.getUsers()[i].equals(user)) {
-                    UserService.getUsers()[i] = null;
+            for (int i = 0; i < userService.getUsers().length; i++) {
+                if (userService.getUsers()[i] != null && userService.getUsers()[i].equals(user)) {
+                    userService.getUsers()[i] = null;
                 }
             }
 

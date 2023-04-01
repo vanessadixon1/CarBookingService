@@ -2,6 +2,7 @@ package com.amcsoftware;
 
 import com.amcsoftware.booking.BookingService;
 import com.amcsoftware.car.CarService;
+import com.amcsoftware.user.UserArrayDataAccessService;
 import com.amcsoftware.user.UserService;
 
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        UserService userService = new UserService();
         BookingService bookingService = new BookingService();
         CarService carService = new CarService();
 
@@ -53,7 +55,7 @@ public class Main {
                         menu();
                         break;
                     case 6:
-                        System.out.println(Arrays.toString(UserService.getUsers()));
+                        System.out.println(Arrays.toString(userService.getUsers()));
                         menu();
                         break;
                     case 7:
