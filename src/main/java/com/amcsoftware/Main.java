@@ -2,6 +2,7 @@ package com.amcsoftware;
 
 import com.amcsoftware.booking.BookingService;
 import com.amcsoftware.car.CarService;
+import com.amcsoftware.user.ExtractUsers;
 import com.amcsoftware.user.UserArrayDataAccessService;
 import com.amcsoftware.user.UserService;
 
@@ -12,7 +13,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        UserService userService = new UserService();
+        String path = "src/main/java/com/amcsoftware/users.csv";
+        UserService userService = new UserService(path);
         BookingService bookingService = new BookingService();
         CarService carService = new CarService();
 
