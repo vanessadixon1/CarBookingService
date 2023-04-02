@@ -16,7 +16,7 @@ public class UserService {
         try {
             users = userArrayDataAccessService.getUsers(new File(path));
         } catch (FileNotFoundException e) {
-            System.out.println("file doesn't exist");
+            System.out.println("file does not exist");
         }
     }
 
