@@ -11,7 +11,6 @@ public class UserService {
 
     public UserService(String path) {
         this.userArrayDataAccessService = new UserArrayDataAccessService();
-        users = new User[5];
 
         try {
             users = userArrayDataAccessService.getUsers(new File(path));
