@@ -1,6 +1,8 @@
 package com.amcsoftware;
 
+import com.amcsoftware.booking.BookingDao;
 import com.amcsoftware.booking.BookingService;
+import com.amcsoftware.car.CarDao;
 import com.amcsoftware.car.CarService;
 import com.amcsoftware.user.ExtractUsers;
 import com.amcsoftware.user.UserArrayDataAccessService;
@@ -13,10 +15,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String path = "src/main/java/com/amcsoftware/users.csv";
-        UserService userService = new UserService(path);
-        BookingService bookingService = new BookingService();
+
+        UserArrayDataAccessService userArrayDataAccessService = new UserArrayDataAccessService();
+        BookingDao bookingDao = new BookingDao();
         CarService carService = new CarService();
+
+        UserService userService = new UserService(userArrayDataAccessService);
+        BookingService bookingService = new BookingService(bookingDao, userService, carService);
 
         Scanner scanner = new Scanner(System.in);
 

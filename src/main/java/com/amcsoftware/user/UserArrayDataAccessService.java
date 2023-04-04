@@ -5,6 +5,18 @@ import java.io.FileNotFoundException;
 import java.util.regex.Pattern;
 
 public class UserArrayDataAccessService extends ExtractUsers implements UserDao{
+    String path = "src/main/java/com/amcsoftware/users.csv";
+
+    public static User[] users;
+
+    {
+        System.out.println("ran first");
+        try {
+            users = getUsers(new File(path));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public User[] getUsers(File file) throws FileNotFoundException {

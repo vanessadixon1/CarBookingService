@@ -2,10 +2,8 @@ package com.amcsoftware.car;
 
 public class CarService {
 
-    private CarDao carDao;
-
     public CarService() {
-        this.carDao = new CarDao();
+
     }
 
     public static Car[] getCars() {

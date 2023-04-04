@@ -1,26 +1,18 @@
 package com.amcsoftware.user;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.UUID;
 
 public class UserService {
-    private final UserArrayDataAccessService userArrayDataAccessService;
+    private UserArrayDataAccessService userArrayDataAccessService;
 
-    private static User[] users;
+    private static final User[] users = new User[5];
 
-    public UserService(String path) {
-        this.userArrayDataAccessService = new UserArrayDataAccessService();
+    public UserService(UserArrayDataAccessService userArrayDataAccessService) {
+        this.userArrayDataAccessService = userArrayDataAccessService;
 
-        try {
-            users = userArrayDataAccessService.getUsers(new File(path));
-        } catch (FileNotFoundException e) {
-            System.out.println("file doesn't exist");
+        for(int i = 0; i < users.length; i++) {
+            users[i] = UserArrayDataAccessService.users[i];
         }
-    }
-
-    public UserService() {
-        this.userArrayDataAccessService = new UserArrayDataAccessService();
     }
 
     public User[] getUsers() {

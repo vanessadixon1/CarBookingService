@@ -13,15 +13,15 @@ public class BookingService {
     public static final int AVAILABLECARS = CarDao.getCars().length;
 
     private BookingDao bookingDao;
-    private CarDao carDao;
+
     private UserService userService;
     private CarService carService;
 
-    public BookingService() {
-        this.bookingDao = new BookingDao();
-        this.carDao = new CarDao();
-        this.carService = new CarService();
-        this.userService = new UserService();
+    public BookingService(BookingDao bookingDao, UserService userService, CarService carService) {
+        this.bookingDao =  bookingDao;
+
+        this.carService = carService;
+        this.userService = userService;
     }
 
     public void bookACar(String id, String carMake) {
