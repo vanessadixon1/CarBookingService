@@ -7,7 +7,7 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-abstract public class ExtractUsers {
+abstract public class UserArrayData {
 
     public abstract Pattern getIdPattern();
     public abstract Pattern getNamePattern();

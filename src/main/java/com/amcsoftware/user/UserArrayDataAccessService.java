@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.regex.Pattern;
 
-public class UserArrayDataAccessService extends ExtractUsers implements UserDao{
+public class UserArrayDataAccessService extends UserArrayData implements UserDao{
     String path = "src/main/java/com/amcsoftware/users.csv";
 
     public static User[] users;
