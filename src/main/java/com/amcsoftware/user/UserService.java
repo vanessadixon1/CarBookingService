@@ -20,14 +20,12 @@ public class UserService {
     }
 
     public User locateUser(String id) {
-        User locatedUser = null;
-        UUID userId = UUID.fromString(id);
-        for (User user : getUsers()) {
-            if (user != null && user.getId().equals(userId)) {
-                locatedUser = user;
+        User user = null;
+        for (User currentUser : getUsers()) {
+            if (currentUser.getId().equals(UUID.fromString(id))) {
+                user = currentUser;
             }
         }
-        return locatedUser;
+        return user;
     }
-
 }

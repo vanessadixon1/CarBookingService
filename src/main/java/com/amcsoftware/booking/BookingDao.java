@@ -1,28 +1,22 @@
 package com.amcsoftware.booking;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookingDao {
-    private static Booking[] bookings;
-    private static final int BOOKINGLIMIT = BookingService.AVAILABLECARS;
-    private int nextAvailableCar = 0;
+    private static List<Booking> bookings;
 
     public BookingDao() {
-        bookings = new Booking[BOOKINGLIMIT];
+        bookings = new ArrayList<>();
     }
 
-    public static Booking[] getBookings() {
+    public static List<Booking> getBookings() {
         return bookings;
     }
 
     public void saveBooking(Booking booking) {
-        try{
-            bookings[nextAvailableCar++] = booking;
-            System.out.println(booking.getCar().getMake() + " has been booked " + LocalDateTime.now() );
-        }catch (IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-        }
+        bookings.add(booking);
+        System.out.println(booking.getCar().getMake() + " has been booked " + LocalDateTime.now() );
     }
 }

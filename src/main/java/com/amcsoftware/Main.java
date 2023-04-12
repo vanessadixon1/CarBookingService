@@ -47,7 +47,9 @@ public class Main {
                         menu();
                         break;
                     case 3:
-                        System.out.println(Arrays.toString(BookingService.getAllBookings()));
+                        int bookingSize = BookingService.getAllBookings().size();
+                        var viewBooking = bookingSize == 0 ? "no bookings" : BookingService.getAllBookings();
+                        System.out.println(viewBooking);
                         menu();
                         break;
                     case 4:
@@ -55,7 +57,9 @@ public class Main {
                         menu();
                         break;
                     case 5:
-                        System.out.println(Arrays.toString(carService.getAvailableElectricCars()));
+                        int availableElectricCarsSize = carService.getAvailableElectricCars().size();
+                        var availableElectricCars = availableElectricCarsSize == 0 ? "no electric cars available" : carService.getAvailableElectricCars();
+                        System.out.println(availableElectricCars);
                         menu();
                         break;
                     case 6:
