@@ -13,10 +13,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        UserArrayDataAccessService userArrayDataAccessService = new UserArrayDataAccessService();
         BookingDao bookingDao = new BookingDao();
         CarService carService = new CarService();
+        UserArrayDataAccessService userArrayDataAccessService = new UserArrayDataAccessService();
 
         UserService userService = new UserService(userArrayDataAccessService);
         BookingService bookingService = new BookingService(bookingDao, userService, carService);
@@ -52,7 +51,7 @@ public class Main {
                         menu();
                         break;
                     case 4:
-                        System.out.println(Arrays.toString(CarService.getCars()));
+                        System.out.println(CarService.getCars());
                         menu();
                         break;
                     case 5:
@@ -60,7 +59,7 @@ public class Main {
                         menu();
                         break;
                     case 6:
-                        System.out.println(Arrays.toString(userService.getUsers()));
+                        System.out.println(userService.getUsers());
                         menu();
                         break;
                     case 7:

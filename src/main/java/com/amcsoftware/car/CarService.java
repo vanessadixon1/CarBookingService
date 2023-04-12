@@ -1,20 +1,23 @@
 package com.amcsoftware.car;
 
+import java.util.List;
+
 public class CarService {
 
     public CarService() {
 
     }
 
-    public static Car[] getCars() {
+    public static List<Car> getCars() {
         return CarDao.getCars();
     }
 
     public Car locateCar(String carMake)  {
         Car car = null;
-        for(int i = 0; i < CarService.getCars().length; i++) {
-            if (CarService.getCars()[i] != null && CarService.getCars()[i].getMake().equalsIgnoreCase(carMake) ) {
-                car = CarService.getCars()[i];
+        for(int i = 0; i < CarService.getCars().size(); i++) {
+            if (CarService.getCars().get(i) != null && CarService.getCars().get(i).getMake().equalsIgnoreCase(carMake) ) {
+                car = CarService.getCars().get(i);
+                break;
             }
         }
         return car;

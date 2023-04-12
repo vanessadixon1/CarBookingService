@@ -10,16 +10,14 @@ import java.util.UUID;
 
 public class BookingService {
 
-    public static final int AVAILABLECARS = CarDao.getCars().length;
+    public static final int AVAILABLECARS = CarDao.getCars().size();
 
     private BookingDao bookingDao;
-
     private UserService userService;
     private CarService carService;
 
     public BookingService(BookingDao bookingDao, UserService userService, CarService carService) {
         this.bookingDao =  bookingDao;
-
         this.carService = carService;
         this.userService = userService;
     }
@@ -40,18 +38,21 @@ public class BookingService {
                 System.out.println("Booking failed - users have to be 21 or older to book a car through AMC Software Booking Service");
                 return;
             }
-            Booking newBooking = new Booking(user.getId(), car);
-            bookingDao.saveBooking(newBooking);
 
-            for (int i = 0; i < userService.getUsers().length; i++) {
-                if (userService.getUsers()[i] != null && userService.getUsers()[i].equals(user)) {
-                    userService.getUsers()[i] = null;
+            bookingDao.saveBooking(new Booking(user.getId(), car));
+
+            for (int i = 0; i < userService.getUsers().size(); i++) {
+                if (userService.getUsers().get(i) != null && userService.getUsers().get(i).equals(user)) {
+                    userService.getUsers().set(i, null);
+                    break;
                 }
             }
 
-            for (int i = 0; i < CarService.getCars().length; i++) {
-                if (CarService.getCars()[i] != null && CarService.getCars()[i].equals(car)) {
-                    CarService.getCars()[i] = null;
+            for (int i = 0; i < CarService.getCars().size(); i++) {
+                if (CarService.getCars().get(i) != null && CarService.getCars().get(i).equals(car)) {
+                    CarService.getCars().set(i, null);
+                    break;
+
                 }
             }
         } else {
@@ -73,7 +74,6 @@ public class BookingService {
         } else {
             System.out.println("no booking for the id " + UUID.fromString(id) + " exist");
         }
-
     }
 
     public static Booking[] getAllBookings() {

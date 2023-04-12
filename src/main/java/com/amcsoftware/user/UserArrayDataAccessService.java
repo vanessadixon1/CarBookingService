@@ -2,15 +2,16 @@ package com.amcsoftware.user;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class UserArrayDataAccessService extends UserArrayData implements UserDao{
     String path = "src/main/java/com/amcsoftware/users.csv";
 
-    public static User[] users;
+    public static List<User> users = new ArrayList<>();
 
     {
-        System.out.println("ran first");
         try {
             users = getUsers(new File(path));
         } catch (FileNotFoundException e) {
@@ -19,7 +20,7 @@ public class UserArrayDataAccessService extends UserArrayData implements UserDao
     }
 
     @Override
-    public User[] getUsers(File file) throws FileNotFoundException {
+    public List<User> getUsers(File file) throws FileNotFoundException {
         return usersExtracted(file);
     }
 

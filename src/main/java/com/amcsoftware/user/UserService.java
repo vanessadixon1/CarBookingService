@@ -1,21 +1,21 @@
 package com.amcsoftware.user;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class UserService {
     private UserArrayDataAccessService userArrayDataAccessService;
 
-    private static final User[] users = new User[5];
+    private static final List<User> users = new ArrayList<>();
 
     public UserService(UserArrayDataAccessService userArrayDataAccessService) {
         this.userArrayDataAccessService = userArrayDataAccessService;
 
-        for(int i = 0; i < users.length; i++) {
-            users[i] = UserArrayDataAccessService.users[i];
-        }
+        users.addAll(UserArrayDataAccessService.users);
     }
 
-    public User[] getUsers() {
+    public List<User> getUsers() {
        return users;
     }
 
