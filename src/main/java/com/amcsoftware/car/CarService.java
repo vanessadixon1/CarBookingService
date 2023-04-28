@@ -1,7 +1,7 @@
 package com.amcsoftware.car;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarService {
 
@@ -14,22 +14,18 @@ public class CarService {
 
     public Car locateCar(String carMake) {
         Car car = null;
-        for (int i = 0; i < CarService.getCars().size(); i++) {
+        for (int i = 0; i < getCars().size(); i++) {
             if (CarService.getCars().get(i).getMake().equalsIgnoreCase(carMake)) {
-                car = CarService.getCars().get(i);
+                car =  CarService.getCars().get(i);
             }
         }
         return car;
     }
 
     public List<Car> getAvailableElectricCars() {
-        List<Car> availableElectricCars = new ArrayList<>();
-        for(Car car : getCars()) {
-            if(car != null && car.getEngineType().equals(EngineType.Electric)) {
-                availableElectricCars.add(car);
-            }
-        }
-        return availableElectricCars;
+
+        return getCars().stream().filter(car -> car.getEngineType().equals(EngineType.Electric))
+                .collect(Collectors.toList());
     }
 
 }

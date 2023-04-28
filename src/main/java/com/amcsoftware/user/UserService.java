@@ -21,11 +21,13 @@ public class UserService {
 
     public User locateUser(String id) {
         User user = null;
+
         for (User currentUser : getUsers()) {
             if (currentUser.getId().equals(UUID.fromString(id))) {
                 user = currentUser;
             }
         }
+
         return user;
     }
 }

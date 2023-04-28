@@ -5,6 +5,7 @@ import com.amcsoftware.car.CarService;
 import com.amcsoftware.user.User;
 import com.amcsoftware.user.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,7 +39,6 @@ public class BookingService {
             }
         }
     }
-
 
     public void bookACar(String id, String carMake) {
         if (!id.matches("^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4{1}[a-fA-F0-9]{3}-[89abAB]{1}[a-fA-F0-9]{3}-[a-fA-F0-9]{12}$") ) {
