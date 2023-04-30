@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class UserArrayDataAccessService extends UserArrayData implements UserDao{
-    String path = "src/main/java/com/amcsoftware/users.csv";
+    String path = "src/main/resources/users.csv";
 
     public static List<User> users = new ArrayList<>();
 

@@ -6,8 +6,6 @@ import com.amcsoftware.car.CarService;
 import com.amcsoftware.user.UserArrayDataAccessService;
 import com.amcsoftware.user.UserService;
 
-import java.util.Arrays;
-
 import java.util.Scanner;
 
 public class Main {
@@ -33,7 +31,7 @@ public class Main {
                 int answer = Integer.parseInt(scanner.nextLine());
                 switch (answer) {
                     case 1:
-                        System.out.println("Enter your user id\n ");
+                        System.out.println("Enter a user id\n ");
                         String id = scanner.nextLine();
                         System.out.println("Enter a car make");
                         String car = scanner.nextLine();

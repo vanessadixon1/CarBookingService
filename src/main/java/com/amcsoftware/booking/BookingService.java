@@ -42,7 +42,7 @@ public class BookingService {
 
     public void bookACar(String id, String carMake) {
         if (!id.matches("^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4{1}[a-fA-F0-9]{3}-[89abAB]{1}[a-fA-F0-9]{3}-[a-fA-F0-9]{12}$") ) {
-            System.out.println("invalid car id");
+            System.out.println("invalid user id");
             return;
         }
 
